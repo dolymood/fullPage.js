@@ -3,10 +3,10 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Background images - fullPage.js</title>
+	<title>Fixed fullscreen backgrounds - fullPage.js</title>
 	<meta name="author" content="Alvaro Trigo Lopez" />
-	<meta name="description" content="fullPage full-screen backgrounds." />
-	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,backgrounds,full-screen" />
+	<meta name="description" content="fullPage fixed full-screen backgrounds." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fixed,fullscreen,backgrounds,full-screen" />
 	<meta name="Resource-type" content="Document" />
 
 
@@ -38,9 +38,10 @@
 	#section2,
 	#section3{
 		background-size: cover;
+		background-attachment: fixed;
 	}
 
-	/* Defining each section background and styles
+	/* Defining each sectino background and styles
 	* --------------------------------------- */
 	#section0{
 		background-image: url(imgs/bg1.jpg);
@@ -93,8 +94,10 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				verticalCentered: false
+				verticalCentered: false,
 
+				//to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
+				css3:false
 			});
 		});
 	</script>
